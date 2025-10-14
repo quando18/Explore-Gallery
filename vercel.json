@@ -1,7 +1,7 @@
 {
+  "framework": "nextjs",
   "buildCommand": "npm run build",
   "outputDirectory": ".next",
-  "framework": "nextjs",
   "installCommand": "npm install",
   "devCommand": "npm run dev",
   "rewrites": [
@@ -30,10 +30,15 @@
     }
   ],
   "images": {
+    "deviceSizes": [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
+    "imageSizes": [16, 32, 48, 64, 96, 128, 256, 384],
     "domains": [
       "images.unsplash.com",
-      "picsum.photos",
-      "i.pravatar.cc"
+      "picsum.photos", 
+      "i.pravatar.cc",
+      "images.pexels.com",
+      "via.placeholder.com",
+      "placehold.co"
     ]
   }
 }
