@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { PaginatedResponse, GalleryItem } from '@/types';
-import { getAllItems, addItem } from '@/lib/persistentStorage';
+import { getAllItemsFile, addItemFile } from '@/lib/fileStorage';
 import { generateThumbnailUrl, getFullImageUrl } from '@/lib/imageUtils';
 
 export async function GET(request: NextRequest) {
@@ -15,7 +15,7 @@ export async function GET(request: NextRequest) {
   const page = parseInt(searchParams.get('page') || '1');
   const limit = parseInt(searchParams.get('limit') || '12');
 
-  let filteredItems = [...getAllItems()];
+  let filteredItems = [...getAllItemsFile()];
 
   // Filter by search query
   if (query) {
@@ -116,9 +116,9 @@ export async function POST(request: NextRequest) {
     }
 
     // Create new item
-    const allItems = getAllItems();
+    const allItems = getAllItemsFile();
     // Generate unique ID to avoid conflicts
-    const maxId = Math.max(...allItems.map(item => parseInt(item.id) || 0));
+    const maxId = Math.max(...allItems.map((item: GalleryItem) => parseInt(item.id) || 0));
     const newItem: GalleryItem = {
       id: (maxId + 1).toString(),
       title,
@@ -139,7 +139,7 @@ export async function POST(request: NextRequest) {
     };
 
     // Add to items array
-    addItem(newItem);
+    addItemFile(newItem);
 
     return NextResponse.json({
       success: true,

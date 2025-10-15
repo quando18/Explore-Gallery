@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { ApiResponse, GalleryItem } from '@/types';
-import { getItemById, incrementViews } from '@/lib/persistentStorage';
+import { getItemByIdFile, incrementViewsFile } from '@/lib/fileStorage';
 
 export async function GET(
   request: NextRequest,
@@ -9,7 +9,7 @@ export async function GET(
   const { id } = await params;
 
   // Find item by ID
-  const item = getItemById(id);
+  const item = getItemByIdFile(id);
 
   if (!item) {
     return NextResponse.json(
@@ -19,10 +19,10 @@ export async function GET(
   }
 
   // Increment view count (in real app, this would be in database)
-  incrementViews(id);
+  incrementViewsFile(id);
 
   // Get updated item
-  const updatedItem = getItemById(id) || item;
+  const updatedItem = getItemByIdFile(id) || item;
 
   // Simulate network delay
   await new Promise(resolve => setTimeout(resolve, 200));
