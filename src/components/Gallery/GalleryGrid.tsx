@@ -92,7 +92,7 @@ export function GalleryGrid({ searchParams, className, forceRefresh }: GalleryGr
         </div>
         <h3 className="text-lg font-semibold mb-2">No results found</h3>
         <p className="text-muted-foreground mb-4">
-          Try adjusting your search terms or filters to find what you're looking for.
+          Try adjusting your search terms or filters to find what you&apos;re looking for.
         </p>
       </div>
     );

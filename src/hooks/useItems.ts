@@ -6,7 +6,7 @@ import { PaginatedResponse, GalleryItem, SearchParams, ApiResponse } from '@/typ
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
 // Post fetcher for mutations
-const postFetcher = async (url: string, { arg }: { arg: any }) => {
+const postFetcher = async (url: string, { arg }: { arg: Record<string, unknown> }) => {
   const response = await fetch(url, {
     method: 'POST',
     headers: {

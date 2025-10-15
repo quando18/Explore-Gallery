@@ -23,7 +23,7 @@ export function FilterPanel({ searchParams, onFiltersChange, className }: Filter
     { value: 'views', label: 'Most Viewed', icon: Eye, color: 'from-purple-500 to-indigo-500', description: 'Popular picks' },
   ];
 
-  const categoryIcons: Record<string, any> = {
+  const categoryIcons: Record<string, React.ComponentType> = {
     nature: Camera,
     abstract: Palette,
     ui: Monitor,

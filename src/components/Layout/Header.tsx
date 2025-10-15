@@ -20,8 +20,8 @@ export function Header({ searchParams, onSearchChange, onSearch }: HeaderProps) 
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2">
-            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-primary-foreground">
-              <Image className="h-5 w-5" />
+            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-primary-foreground" role="img" aria-label="Explore Gallery Logo">
+              <Image className="h-5 w-5" aria-hidden="true" />
             </div>
             <span className="text-xl font-bold">Explore Gallery</span>
           </Link>

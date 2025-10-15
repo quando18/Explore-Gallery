@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { PaginatedResponse, GalleryItem, SearchParams } from '@/types';
+import { PaginatedResponse, GalleryItem } from '@/types';
 import { getAllItems, addItem } from '@/lib/storage';
 import { generateThumbnailUrl, getFullImageUrl } from '@/lib/imageUtils';
 
@@ -147,7 +147,7 @@ export async function POST(request: NextRequest) {
       message: 'Item created successfully'
     });
 
-  } catch (error) {
+  } catch {
     return NextResponse.json(
       { success: false, message: 'Internal server error' },
       { status: 500 }

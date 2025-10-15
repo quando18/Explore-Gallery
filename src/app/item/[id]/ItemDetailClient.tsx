@@ -90,7 +90,7 @@ export function ItemDetailClient({ initialItem }: ItemDetailClientProps) {
           text: item.description,
           url: window.location.href,
         });
-      } catch (error) {
+      } catch {
         // User cancelled sharing or share failed
         setShowShareModal(true);
       }
