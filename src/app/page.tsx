@@ -1,13 +1,13 @@
 'use client';
 
-import { useState, useCallback, useMemo, useEffect } from 'react';
+import { useState, useCallback, useMemo, useEffect, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { Header } from '@/components/Layout/Header';
 import { GalleryGrid } from '@/components/Gallery/GalleryGrid';
 import { FilterPanel } from '@/components/Filters/FilterPanel';
 import { SearchParams } from '@/types';
 
-export default function Home() {
+function HomeContent() {
   const router = useRouter();
   const urlSearchParams = useSearchParams();
   const [searchParams, setSearchParams] = useState<SearchParams>({
@@ -101,5 +101,17 @@ export default function Home() {
         </div>
       </main>
     </div>
+  );
+}
+
+export default function Home() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-background flex items-center justify-center">
+        <div className="h-8 w-8 animate-spin rounded-full border-4 border-primary border-t-transparent" />
+      </div>
+    }>
+      <HomeContent />
+    </Suspense>
   );
 }
