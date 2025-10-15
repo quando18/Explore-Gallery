@@ -4,7 +4,7 @@ import { ItemDetailClient } from './ItemDetailClient';
 import { GalleryItem, ApiResponse } from '@/types';
 
 interface Props {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }
 
 // Generate metadata for SEO
