@@ -2,7 +2,7 @@ import { GalleryItem } from '@/types';
 import { mockItems } from '@/lib/mockData';
 
 // In-memory storage for items (in real app, this would be a database)
-let items: GalleryItem[] = [...mockItems];
+const items: GalleryItem[] = [...mockItems];
 
 export function getAllItems(): GalleryItem[] {
   return items;

@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
+import Image from 'next/image';
 import { ArrowLeft, Upload, X, Plus } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import { Input } from '@/components/ui/Input';
@@ -58,7 +59,7 @@ export default function CreatePage() {
     try {
       new URL(string);
       return true;
-    } catch (_) {
+    } catch {
       return false;
     }
   };
@@ -224,10 +225,11 @@ export default function CreatePage() {
                   <div className="mt-4">
                     <p className="text-sm text-muted-foreground mb-2">Preview:</p>
                     <div className="relative aspect-video max-w-md bg-muted rounded-lg overflow-hidden">
-                      <img
+                      <Image
                         src={formData.imageUrl}
                         alt="Preview"
-                        className="w-full h-full object-cover"
+                        fill
+                        className="object-cover"
                         onError={() => {
                           setErrors(prev => ({ 
                             ...prev, 

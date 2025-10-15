@@ -6,7 +6,7 @@ import { useTheme } from '@/components/theme/ThemeProvider';
 import { cn } from '@/lib/utils';
 
 export function ThemeToggle({ className }: { className?: string }) {
-  const { theme, setTheme, resolvedTheme } = useTheme();
+  const { theme, setTheme } = useTheme();
 
   const themeOptions = [
     { value: 'light' as const, icon: Sun, label: 'Light' },

@@ -28,7 +28,7 @@ export function generateThumbnailUrl(imageUrl: string): string {
     
     // For other images, return as-is
     return imageUrl;
-  } catch (error) {
+  } catch {
     // If URL parsing fails, return original
     return imageUrl;
   }
@@ -54,7 +54,7 @@ export function getFullImageUrl(imageUrl: string): string {
     
     // For other images, return as-is
     return imageUrl;
-  } catch (error) {
+  } catch {
     // If URL parsing fails, return original
     return imageUrl;
   }
@@ -76,7 +76,7 @@ export function getBaseImageUrl(imageUrl: string): string {
     
     // For other images, return as-is
     return imageUrl;
-  } catch (error) {
+  } catch {
     return imageUrl;
   }
 }

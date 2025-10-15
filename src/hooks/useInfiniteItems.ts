@@ -47,7 +47,7 @@ export function useInfiniteItems(params: SearchParams = {}, forceRefresh?: boole
       setAllItems([]);
       // Force revalidate the cache for the current page
       const refreshUrl = `/api/items?${new URLSearchParams({
-        ...params as any,
+        ...params as Record<string, string>,
         page: '1',
         limit: '12'
       }).toString()}`;

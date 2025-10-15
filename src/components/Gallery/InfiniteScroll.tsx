@@ -38,7 +38,7 @@ export function InfiniteScroll({
         
         {!hasNextPage && !isLoading && (
           <div className="text-center text-muted-foreground">
-            <p>You've reached the end! 🎉</p>
+            <p>You&apos;ve reached the end! 🎉</p>
             <p className="text-sm mt-1">No more items to load.</p>
           </div>
         )}

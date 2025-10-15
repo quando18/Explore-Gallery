@@ -47,7 +47,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         images: [item.imageUrl],
       },
     };
-  } catch (error) {
+  } catch {
     return {
       title: 'Item Not Found - Explore Gallery',
     };
