@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { ApiResponse, GalleryItem } from '@/types';
-import { getItemById, incrementViews } from '@/lib/storage';
+import { getItemById, incrementViews } from '@/lib/persistentStorage';
 
 export async function GET(
   request: NextRequest,
@@ -19,14 +19,17 @@ export async function GET(
   }
 
   // Increment view count (in real app, this would be in database)
-  const updatedItem = incrementViews(id);
+  incrementViews(id);
+
+  // Get updated item
+  const updatedItem = getItemById(id) || item;
 
   // Simulate network delay
   await new Promise(resolve => setTimeout(resolve, 200));
 
   const response: ApiResponse<GalleryItem> = {
     success: true,
-    data: updatedItem || item
+    data: updatedItem
   };
 
   return NextResponse.json(response);

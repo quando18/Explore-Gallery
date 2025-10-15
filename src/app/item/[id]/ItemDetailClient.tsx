@@ -155,9 +155,13 @@ export function ItemDetailClient({ initialItem }: ItemDetailClientProps) {
                       !imageLoaded && "opacity-0"
                     )}
                     onLoad={() => setImageLoaded(true)}
-                    onError={() => setImageError(true)}
+                    onError={(e) => {
+                      console.warn('Detail image load failed:', item.id, item.imageUrl);
+                      setImageError(true);
+                    }}
                     priority
                     sizes="(max-width: 1024px) 100vw, 66vw"
+                    unoptimized={true}
                   />
                   {!imageLoaded && (
                     <div className="absolute inset-0 flex items-center justify-center">

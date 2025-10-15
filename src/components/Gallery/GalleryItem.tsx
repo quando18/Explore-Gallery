@@ -49,9 +49,13 @@ export function GalleryItem({ item, className, priority = false }: GalleryItemPr
                 !imageLoaded && "opacity-0"
               )}
               onLoad={() => setImageLoaded(true)}
-              onError={() => setImageError(true)}
+              onError={(e) => {
+                console.warn('Image load failed:', item.id, item.imageUrl);
+                setImageError(true);
+              }}
               priority={priority}
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              unoptimized={true}
             />
           ) : (
             <div className="w-full h-full flex items-center justify-center bg-muted text-muted-foreground">

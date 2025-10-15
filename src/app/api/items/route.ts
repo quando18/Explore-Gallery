@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { PaginatedResponse, GalleryItem } from '@/types';
-import { getAllItems, addItem } from '@/lib/storage';
+import { getAllItems, addItem } from '@/lib/persistentStorage';
 import { generateThumbnailUrl, getFullImageUrl } from '@/lib/imageUtils';
 
 export async function GET(request: NextRequest) {
